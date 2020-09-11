@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NewsApp(Kamel)</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="news">News</string>
+    <string name="sport">Sport</string>
+    <string name="settings">Settings</string>
+    <string name="bussiness">Bussiness</string>
+    <string name="change_country">Change Country</string>
+    <string name="confirm">Confirm</string>
+</resources>

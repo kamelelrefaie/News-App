@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/menu_item_news"
+     android:icon="@drawable/ic_message"
+    app:cnb_backgroundColor="@color/colorPrimary"
+    app:cnb_iconColor="#ffffff"
+
+    app:cnb_textColor="#ffffff"
+    android:title="@string/news" />
+    <item
+        android:id="@+id/menu_item_sprot"
+        android:icon="@drawable/ic_sports_soccer_24"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+
+        app:cnb_textColor="#ffffff"
+        android:title="@string/sport" />
+    <item
+        android:id="@+id/menu_item_bussiness"
+        android:icon="@drawable/ic_business"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+
+        app:cnb_textColor="#ffffff"
+        android:title="@string/bussiness" />
+    <item
+        android:id="@+id/menu_item_settings"
+        android:icon="@drawable/ic_menu"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+
+        app:cnb_textColor="#ffffff"
+        android:title="@string/settings" />
+
+</menu>
