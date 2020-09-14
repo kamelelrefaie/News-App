@@ -44,7 +44,8 @@ public class SportHomeFragment extends BaseFragment {
         NewsAdapter adapter = new NewsAdapter(getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         excuteConnection(adapter,layoutManager);
-
+        sportHomeFragmentRv.setAdapter(adapter);
+        sportHomeFragmentRv.setLayoutManager(layoutManager);
         return inflate;
     }
 
@@ -55,8 +56,7 @@ public class SportHomeFragment extends BaseFragment {
                 try {
                     if (response.body().getStatus().equals("ok")) {
                         adapter.setList((ArrayList<Article>) response.body().getArticles());
-                        sportHomeFragmentRv.setAdapter(adapter);
-                        sportHomeFragmentRv.setLayoutManager(layoutManager);
+                        adapter.isShimmer=false;
                     } else {
                         Toast.makeText(baseActivity, "wrong from server" + response.body().getStatus(), Toast.LENGTH_SHORT).show();
                     }

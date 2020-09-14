@@ -45,7 +45,8 @@ public class BusinessHomeFragment extends BaseFragment {
         NewsAdapter adapter = new NewsAdapter(getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         excuteConnection(adapter,layoutManager);
-
+        businessHomeFragmentRv.setAdapter(adapter);
+        businessHomeFragmentRv.setLayoutManager(layoutManager);
         return inflate;
     }
 
@@ -56,8 +57,7 @@ public class BusinessHomeFragment extends BaseFragment {
                 try {
                     if(response.body().getStatus().equals("ok")){
                         adapter.setList((ArrayList<Article>) response.body().getArticles());
-                        businessHomeFragmentRv.setAdapter(adapter);
-                        businessHomeFragmentRv.setLayoutManager(layoutManager);
+                        adapter.isShimmer=false;
                     }else{
                         Toast.makeText(baseActivity, "wrong from server"+response.body().getStatus(), Toast.LENGTH_SHORT).show();
                     }

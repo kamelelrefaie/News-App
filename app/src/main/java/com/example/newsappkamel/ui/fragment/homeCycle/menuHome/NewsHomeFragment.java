@@ -42,6 +42,8 @@ public class NewsHomeFragment extends BaseFragment {
         unbinder = ButterKnife.bind(this, inflate);
         NewsAdapter adapter = new NewsAdapter(getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        newsHomeFragmentRv.setLayoutManager(layoutManager);
+        newsHomeFragmentRv.setAdapter(adapter);
         excuteConnection(adapter,layoutManager);
 
 
@@ -56,8 +58,8 @@ public class NewsHomeFragment extends BaseFragment {
                 try {
                     if(response.body().getStatus().equals("ok")){
                         adapter.setList((ArrayList<Article>) response.body().getArticles());
-                        newsHomeFragmentRv.setAdapter(adapter);
-                        newsHomeFragmentRv.setLayoutManager(layoutManager);
+                        adapter.isShimmer = false;
+
                     }else{
                         Toast.makeText(baseActivity, "wrong from server"+response.body().getStatus(), Toast.LENGTH_SHORT).show();
                     }

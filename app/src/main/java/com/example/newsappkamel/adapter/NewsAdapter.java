@@ -12,19 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.newsappkamel.R;
 import com.example.newsappkamel.data.model.Article;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 import static com.example.newsappkamel.utils.HelperMethod.onLoadImageFromUrl;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
+
     private Context context;
     private ArrayList<Article> newsList = new ArrayList<>();
+    private int shimmerNumber =9;
+    public boolean isShimmer =true;
 
 
     public NewsAdapter(Context context) {
@@ -39,19 +42,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        holder.newsItemTxtTitle.setText(newsList.get(position).getTitle());
-        holder.newsItemTxtBody.setText(newsList.get(position).getDescription());
-        onLoadImageFromUrl(holder.newsItemImg, newsList.get(position).getUrlToImage(), context);
-
+        if(isShimmer){
+            holder.newsItemShimmer.startShimmer();
+        }else {
+            holder.newsItemShimmer.stopShimmer();
+            holder.newsItemShimmer.setShimmer(null);
+            holder.newsItemTxtTitle.setText(newsList.get(position).getTitle());
+            holder.newsItemTxtBody.setText(newsList.get(position).getDescription());
+            onLoadImageFromUrl(holder.newsItemImg, newsList.get(position).getUrlToImage(), context);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return newsList.size();
+        return isShimmer?shimmerNumber:newsList.size();
     }
 
     public void setList(ArrayList<Article> list) {
         this.newsList = list;
+        notifyDataSetChanged();
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
@@ -61,7 +70,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         TextView newsItemTxtTitle;
         @BindView(R.id.news_item_txt_body)
         TextView newsItemTxtBody;
-
+        @BindView(R.id.news_item_shimmer)
+        ShimmerFrameLayout newsItemShimmer;
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

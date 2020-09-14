@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dim_10dp"
     >
-
+<com.facebook.shimmer.ShimmerFrameLayout
+    android:id="@+id/news_item_shimmer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,16 +18,14 @@
         android:id="@+id/news_item_img"
         android:layout_width="@dimen/dim_120dp"
         android:layout_height="@dimen/dim_120dp"
-        android:layout_marginTop="@dimen/dim_20dp"
         android:layout_alignParentStart="true"
-      />
+        />
 
     <TextView
         android:id="@+id/news_item_txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hvjvhbjhjhv"
-         android:layout_toEndOf="@+id/news_item_img"
+        android:layout_toEndOf="@+id/news_item_img"
         android:layout_marginTop="@dimen/dim_10dp"
         android:gravity="center"
         android:textSize="@dimen/txt_20sp"
@@ -43,5 +43,5 @@
             />
 </RelativeLayout>
 
-
+</com.facebook.shimmer.ShimmerFrameLayout>
 </androidx.cardview.widget.CardView>
