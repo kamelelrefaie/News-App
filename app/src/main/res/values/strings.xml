@@ -7,4 +7,6 @@
     <string name="bussiness">Bussiness</string>
     <string name="change_country">Change Country</string>
     <string name="confirm">Confirm</string>
+    <string name="choose_country">Choose Country ,Please</string>
+    <string name="click_confirm">Click Confirm</string>
 </resources>
