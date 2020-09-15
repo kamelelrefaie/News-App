@@ -8,6 +8,7 @@ this is news app use [News API](https://newsapi.org/) to povide us with the late
 - Shimmer Facebook
 - Retrofit
 - RecyclerView
+- Custom Spinner
 
 
 
